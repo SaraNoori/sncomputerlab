@@ -20,6 +20,14 @@ public class Computer {
 
     private ArrayList<Monitor> monitorList;
 
+    public Computer()
+    {
+        id = "null";
+        manufacturer = "null";
+        year = "null";
+        processor = "null";
+    }
+
     public Computer(String id, String manufacturer, String year, String processor)
     {
         this.id = id;
