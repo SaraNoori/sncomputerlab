@@ -26,6 +26,7 @@ public class Computer {
         manufacturer = "null";
         year = "null";
         processor = "null";
+        monitorList = new ArrayList<Monitor>();
     }
 
     public Computer(String id, String manufacturer, String year, String processor)

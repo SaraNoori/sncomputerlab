@@ -3,12 +3,15 @@ package edu.francistuttle;
 public class Monitor {
     private String id;
     public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
     private String manufacturer;
     public String getManufacturer() { return manufacturer; }
+    public void setManufacturer(String manufacturer) { this.manufacturer = manufacturer; }
 
     private String resolution;
     public String getResolution() { return resolution; }
+    public void setResolution(String resolution) { this.resolution = resolution; }
 
     public Monitor()
     {

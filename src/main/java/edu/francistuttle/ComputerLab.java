@@ -6,12 +6,6 @@ import java.util.ArrayList;
 
 public class ComputerLab 
 {
-    private ArrayList<Computer> computerList;
-
-    public ComputerLab()
-    {
-        computerList = new ArrayList<Computer>();
-    }
 
     public static Document readXMLFromFile(String fileNameWithPath) throws Exception
     {
@@ -27,16 +21,16 @@ public class ComputerLab
         return document;
     }
 
-    // --- WIP ----
-    public ArrayList parse(String pathName) throws Exception
+
+    public ArrayList<Computer> parse(String pathName) throws Exception
     {
         ArrayList<Computer> result = new ArrayList<Computer>();
 
         Document doc = readXMLFromFile(pathName);
-        Element root = doc.getDocumentElement();
 
         NodeList nList = doc.getElementsByTagName("computer");
 
+        // for each computer in the list:
         for (int index = 0; index < nList.getLength(); index++)
         {
             Node node = nList.item(index);
@@ -62,13 +56,17 @@ public class ComputerLab
                     {
                         Element monitElement = (Element) monitNode;
 
+                        // fill monitors and add to computer
                         Monitor monit = new Monitor();
-                        // TODO: fill monitors and add to computer
+                        monit.setId(monitElement.getAttribute("id"));
+                        monit.setManufacturer(monitElement.getElementsByTagName("manufacturer").item(0).getTextContent());
+                        monit.setResolution(monitElement.getElementsByTagName("resolution").item(0).getTextContent());
+
+                        comp.addMonitor(monit);
                     }
                 }
-
+                result.add(comp);
             }
-            // TODO: Add computer to result Array
         }
 
         return result;
